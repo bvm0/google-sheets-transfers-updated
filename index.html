@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football Player Transfer Data</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Neuton:wght@700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Football Player Transfer Data</h1>
+        
+        <form id="transferForm">
+            <label for="date">Date:</label>
+            <input type="date" id="date" required>
+
+            <label>Transaction Type:</label>
+            <div>
+                <label>
+                    <input type="radio" name="transactionType" value="Transfer" required>
+                    Transfer
+                </label>
+                <label>
+                    <input type="radio" name="transactionType" value="Loan to Buy">
+                    Loan to Buy
+                </label>
+                <label>
+                    <input type="radio" name="transactionType" value="Loan">
+                    Loan
+                </label>
+            </div>
+
+            <div id="transferFields">
+                <h2>Transfer Information</h2>
+                <label for="transferFee">Transfer Fee (€ millions):</label>
+                <input type="text" id="transferFee" pattern="^\d+(\.\d{1,2})?$" required>
+
+                <label for="playerName">Player Name:</label>
+                <input type="text" id="playerName" required>
+
+                <label for="playerAge">Player Age:</label>
+                <input type="number" id="playerAge" min="1" required>
+
+                <label for="nationality">Nationality (FIFA code):</label>
+                <input type="text" id="nationality" pattern="^[A-Z]{3}$" title="3-letter FIFA code" required>
+
+                <label for="overallRating">Overall Rating:</label>
+                <input type="number" id="overallRating" required>
+
+                <label for="feeIn">Fee In (€ millions):</label>
+                <input type="text" id="feeIn" pattern="^\d+(\.\d{1,2})?$" required>
+
+                <label for="yearsAtClub">Years at Club:</label>
+                <input type="number" id="yearsAtClub" min="1" required>
+
+                <label for="overallGrowth">Overall Growth (+/-):</label>
+                <input type="text" id="overallGrowth" required pattern="^[+-]?\d+$">
+
+                <h3>Club Information</h3>
+                <label for="clubName">Club Name:</label>
+                <input type="text" id="clubName" required>
+
+                <label for="clubNation">Club Nation:</label>
+                <input type="text" id="clubNation" pattern="^[A-Z]{3}$" title="3-letter FIFA code" required>
+
+                <label for="clubTier">Club Tier:</label>
+                <select id="clubTier" required>
+                    <option value="">Select Tier</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+
+            <div id="loanToBuyFields" style="display: none;">
+                <h2>Loan to Buy Information</h2>
+                <label for="loanLength">Loan Length:</label>
+                <select id="loanLength" required>
+                    <option value="">Select Length</option>
+                    <option value="6 months">6 months</option>
+                    <option value="1 year">1 year</option>
+                    <option value="2 years">2 years</option>
+                </select>
+
+                <label for="contractRemaining">Contract Remaining (Years):</label>
+                <input type="number" id="contractRemaining" min="0" max="1" required>
+
+                <label for="wage">Wage (€ thousands):</label>
+                <input type="text" id="wage" pattern="^\d+(\.\d{1,2})?$" required>
+            </div>
+
+            <div id="loanFields" style="display: none;">
+                <h2>Loan Information</h2>
+                <label for="loanLength">Loan Length:</label>
+                <select id="loanLength" required>
+                    <option value="">Select Length</option>
+                    <option value="6 months">6 months</option>
+                    <option value="1 year">1 year</option>
+                    <option value="2 years">2 years</option>
+                </select>
+
+                <label for="contractRemaining">Contract Remaining (Years):</label>
+                <input type="number" id="contractRemaining" min="0" max="1" required>
+
+                <label for="wage">Wage (€ thousands):</label>
+                <input type="text" id="wage" pattern="^\d+(\.\d{1,2})?$" required>
+            </div>
+
+            <button type="submit">Complete</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
